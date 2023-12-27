@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 
 // Usar las rutas
-app.use('/items', itemRoutes);
+app.use('/', itemRoutes);
 
 // Iniciar servidor
 app.listen(PORT, () => {

@@ -10,16 +10,14 @@ import { DeleteItem } from '../controllers/DeleteItem.js';
 
 const router = express.Router();
 
-router.get('/',getItems);
+router.get('/',ScrapeWeb);
 
-router.get('/scrape', ScrapeWeb );
+router.get('/items', getItems );
   
+router.post('/items', PostItem);
 
+router.put('/items/:id',PutItem);
 
-router.post('/', PostItem);
-
-router.put('/:id',PutItem);
-
-router.delete('/:id',DeleteItem);
+router.delete('/items/:id',DeleteItem);
 
 export default router
