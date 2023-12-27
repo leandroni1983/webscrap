@@ -12,12 +12,12 @@ const router = express.Router();
 
 router.get('/',ScrapeWeb);
 
-router.get('/items', getItems );
+// router.get('/items', getItems );
   
-router.post('/items', PostItem);
+// router.post('/items', PostItem);
 
-router.put('/items/:id',PutItem);
+// router.put('/items/:id',PutItem);
 
-router.delete('/items/:id',DeleteItem);
+// router.delete('/items/:id',DeleteItem);
 
 export default router

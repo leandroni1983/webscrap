@@ -8,10 +8,10 @@ export const scrapeWebsite = async (url) => {
     const $ = cheerio.load(html);
 
     // Aquí puedes agregar tu lógica de scraping usando jQuery-like syntax con Cheerio
+    // Por ejemplo, obtener un título:
     const selectorTitle = "title"
     const selector = '#__next > div > header > div.sc-5ff8c244-0.hBzpbt.liveBlogStrip > div > ul > li:nth-child(1) > h2 > a'
     
-    // Por ejemplo, obtener un título:
     const data = {
       title : $(selectorTitle).text(),
       Subtitle : $(selector).text(),
