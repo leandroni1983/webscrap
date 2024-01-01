@@ -1,20 +1,16 @@
 import express from 'express';
-import cors from 'cors'
-//import {PutItem, getItems,PostItem ,DeleteItem, mostrarMensaje} from '../controllers'
-
 import { ScrapeWeb } from '../controllers/Scrape.controller.js';
-import {getItems} from '../controllers/GetItems.js'
-import { PostItem } from '../controllers/PostItem.js';
-import { PutItem } from '../controllers/PutItem.js';
-import { DeleteItem } from '../controllers/DeleteItem.js';
+import { scrapeWebDolar } from "../utils/webscraperDolar.utils.js";
+import { scrapeWebInfobae } from '../utils/webscraperInfobae.utils.js';
 
-const corsOptions = {
 
-}
+const urlDolar = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  // Ejemplo de URL para scraping
+const urlInfobae = 'https://www.infobae.com';  // Ejemplo de URL para scraping
 
 const router = express.Router();
 
-router.get('/',cors(),ScrapeWeb);
+router.get('/dolar',ScrapeWeb(scrapeWebDolar, urlDolar));
+router.get('/infobae',ScrapeWeb(scrapeWebInfobae, urlInfobae))
 
 // router.get('/items', getItems );
   
