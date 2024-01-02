@@ -6,7 +6,7 @@ const options = {
     info: {
       title: 'API Dolar / Noticias' ,
       version: '1.0.0',
-      description: 'Una API de LennyCode',
+      description: 'Una API de Lenny Code',
       contact:{
         email:"leandronicolas1983@gmail.com"
       }
