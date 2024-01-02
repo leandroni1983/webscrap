@@ -2,7 +2,6 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 export const scrapeWebDolar = async (url) => {
-  //const url = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  // Ejemplo de URL para scraping
   try {
     const response = await axios.get(url);
     const html = response.data;

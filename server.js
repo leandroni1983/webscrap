@@ -4,6 +4,12 @@ import bodyParser from 'body-parser';
 import itemRoutes from './routes/routes.js';
 import morgan from 'morgan';
 import cors from  'cors'
+
+
+import swaggerUi from 'swagger-ui-express';
+import specs from './swaggerOptions.js';
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +27,9 @@ app.use(morgan('dev'));
 app.use(cors(corsOptions))
 app.use(bodyParser.json());
 
+
+// Configuración de Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Usar las rutas
 app.use('/api', itemRoutes);
