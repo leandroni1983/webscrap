@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 
 const corsOptions = {
-  origin: process.env.ORIGIN_URL || 'http://localhost:3001/',   
+  origin: process.env.CORS_ORIGIN,   
   optionsSuccessStatus: 200 // Algunas versiones de navegador/axios pueden requerir esta opción
 };
 
