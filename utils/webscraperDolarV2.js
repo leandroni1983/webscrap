@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 export const scrapeWebDolarV2 = async (url) => {
   try {
     // Iniciar el navegador de Puppeteer
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch(({ headless: 'new' }));
     const page = await browser.newPage();
 
     // Cargar la página
