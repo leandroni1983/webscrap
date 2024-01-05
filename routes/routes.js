@@ -1,6 +1,7 @@
 import express from 'express';
 import { ScrapeWeb } from '../controllers/index.js';
 import { scrapeWebDolar, scrapeWebInfobae } from '../utils/index.js';
+import { scrapeWebDolarV2 } from '../utils/webscraperDolarV2.js';
 
 const urlDolar = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  // Ejemplo de URL para scraping
 const urlNews = 'https://www.infobae.com';  // Ejemplo de URL para scraping
@@ -10,9 +11,9 @@ const urlNews = 'https://www.infobae.com';  // Ejemplo de URL para scraping
 
 const router = express.Router();
 
-router.get('/dolar',ScrapeWeb(scrapeWebDolar, urlDolar));
+router.get('/dolar/v1',ScrapeWeb(scrapeWebDolar, urlDolar));
 router.get('/news',ScrapeWeb(scrapeWebInfobae, urlNews))
-
+router.get('/dolar/v2',ScrapeWeb(scrapeWebDolarV2,urlDolar))
 // router.get('/items', getItems );
   
 // router.post('/items', PostItem);

@@ -1,24 +1,29 @@
 import express from 'express';
+
+import dotenv from 'dotenv';
+import path from 'path'; // Importa el módulo path
+
 import bodyParser from 'body-parser';
-// import mongoose from 'mongoose';
 import itemRoutes from './routes/routes.js';
 import morgan from 'morgan';
 import cors from  'cors'
-
-
 import swaggerUi from 'swagger-ui-express';
 import specs from './swaggerOptions.js';
 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Conexión a MongoDB
-//mongoose.connect('mongodb://localhost:27017/miCrudDB', { useNewUrlParser: true, useUnifiedTopology: true });
+const mode = process.env.NODE_ENV || 'development';
 
 
-const corsOptions = {
-  origin: process.env.CORS_ORIGIN,   
+// Cargar variables de entorno según el modo
+if (mode === 'development') {
+  dotenv.config({ path: '.env.development' });
+} else if (mode === 'production') {
+  dotenv.config({ path: '.env.production' });
+}
+ const corsOptions = {
+  origin: process.env.CORS_ORIGIN,    
   optionsSuccessStatus: 200 // Algunas versiones de navegador/axios pueden requerir esta opción
 };
 
