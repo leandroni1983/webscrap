@@ -3,8 +3,8 @@ import puppeteer from 'puppeteer';
 export const scrapeWebDolarV2 = async (url) => {
   try {
     // Iniciar el navegador de Puppeteer
-    puppeteer.connect({ browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.API_TOKEN}` })
-    const browser = await puppeteer.launch(({ headless: 'new' }));
+   // puppeteer.connect({ browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.API_TOKEN}` })
+    const browser = await puppeteer.launch({args: ['--no-sandbox'] });
     const page = await browser.newPage();
 
     // Cargar la página

@@ -1,7 +1,7 @@
 import express from 'express';
 import { ScrapeWeb } from '../controllers/index.js';
-import { scrapeWebDolar, scrapeWebInfobae } from '../utils/index.js';
-import { scrapeWebDolarV2 } from '../utils/webscraperDolarV2.js';
+import { scrapeWebDolar, scrapeWebInfobae,scrapeWebDolarV2 } from '../utils/index.js';
+
 
 const urlDolar = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  // Ejemplo de URL para scraping
 const urlNews = 'https://www.infobae.com';  // Ejemplo de URL para scraping

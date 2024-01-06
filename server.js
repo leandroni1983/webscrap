@@ -1,7 +1,6 @@
 import express from 'express';
 
 import dotenv from 'dotenv';
-import path from 'path'; // Importa el módulo path
 
 import bodyParser from 'body-parser';
 import itemRoutes from './routes/routes.js';
