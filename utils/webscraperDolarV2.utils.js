@@ -3,10 +3,8 @@ import puppeteer from 'puppeteer';
 export const scrapeWebDolarV2 = async (url) => {
   try {
     // Iniciar el navegador de Puppeteer
-   // puppeteer.connect({ browserWSEndpoint: `wss://chrome.browserless.io?token=${process.env.API_TOKEN}` })
-    const browser = await puppeteer.launch({headless: true,args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox'] });
     const page = await browser.newPage();
-
     // Cargar la página
     await page.goto(url, { waitUntil: 'networkidle2' });
 
@@ -14,8 +12,13 @@ export const scrapeWebDolarV2 = async (url) => {
     const dataArray = await page.$$eval('.foreign-item-ctn', elements => {
       return elements.map(element => {
         const title = element.querySelector('span.box-info-title.fc-link').innerText.trim();
-        const compra = element.querySelector('.box-info-content-values .fc-sub .fc-val').innerText.trim();
-        const venta = element.querySelector('.box-info-content-values .fc-sub .fc-val:last-child').innerText.trim();
+        // Obtenemos elvalor de compra y venta 
+        const compraElement = element.querySelector('.box-info-content-values .fc-sub:nth-child(1) .fc-val')
+        const compra = compraElement ? compraElement.innerText.trim() : 'N/A';
+        const ventaElement = element.querySelector('.box-info-content-values .fc-sub:nth-child(2) .fc-val')
+        const venta = ventaElement ? ventaElement.innerText.trim() : 'N/A';
+       
+        // Obtenemos el porcentaje de variacion de las ultimas 24hs
         const value = element.querySelector('.box-info-content-percent .fc-per').innerText.trim();
 
         // Obtenemos el estilo de la clase ".box-info-percent"
