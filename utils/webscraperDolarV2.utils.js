@@ -3,7 +3,11 @@ import puppeteer from 'puppeteer';
 export const scrapeWebDolarV2 = async (url) => {
   try {
     // Iniciar el navegador de Puppeteer
-    const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser',
+      headless: 'new', 
+      args: ['--no-sandbox'] 
+    });
     const page = await browser.newPage();
     // Cargar la página
     await page.goto(url, { waitUntil: 'networkidle2' });
