@@ -10,7 +10,7 @@ export const scrapeWebDolarV2 = async (url) => {
     });
     const page = await browser.newPage();
     // Cargar la página
-    await page.goto(url, { waitUntil: 'networkidle2' });
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
 
     // Utilizamos el selector específico para obtener cada elemento con la clase ".foreign-item-ct"
     const dataArray = await page.$$eval('.foreign-item-ctn', elements => {
