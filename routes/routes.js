@@ -1,25 +1,23 @@
 import express from 'express';
 import { ScrapeWeb } from '../controllers/index.js';
-import { scrapeWebDolar, scrapeWebInfobae,scrapeWebDolarV2 } from '../utils/index.js';
+import { scrapeWebDolar, scrapeWebInfobae } from '../utils/index.js';
 
 
-const urlDolar = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  // Ejemplo de URL para scraping
-const urlNews = 'https://www.infobae.com';  // Ejemplo de URL para scraping
+const urlDolar = 'https://www.infobae.com/economia/divisas/dolar-hoy/';  
+const urlNews = 'https://www.infobae.com'; 
 
 // const urlDolar = process.env.DOLAR_URL
 // const urlNews = process.env.NEWS_URL
 
 const router = express.Router();
 
-router.get('/dolar/v1',ScrapeWeb(scrapeWebDolar, urlDolar));
-router.get('/news',ScrapeWeb(scrapeWebInfobae, urlNews))
-router.get('/dolar/v2',ScrapeWeb(scrapeWebDolarV2,urlDolar))
-// router.get('/items', getItems );
-  
-// router.post('/items', PostItem);
+router.get('/dolar/v1', async (req, res) => {
+  return ScrapeWeb(scrapeWebDolar, urlDolar)(req, res);
+});
 
-// router.put('/items/:id',PutItem);
+router.get('/news', async (req, res) => {
+  return ScrapeWeb(scrapeWebInfobae, urlNews)(req, res);
+});
 
-// router.delete('/items/:id',DeleteItem);
 
 export default router

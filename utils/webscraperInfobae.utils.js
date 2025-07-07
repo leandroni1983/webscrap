@@ -24,12 +24,9 @@ export const scrapeWebInfobae = async (url) => {
         NotaUrl = `https://www.infobae.com${NotaUrl}`;
     }
 
-  
-      dataArray.push({
-          title: title,
-          imageUrl: imageUrl,
-          url: NotaUrl
-      });
+
+      dataArray.push({title, imageUrl, url: NotaUrl });
+      
   });
   
 

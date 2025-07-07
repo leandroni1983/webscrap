@@ -20,7 +20,7 @@ export const scrapeWebDolar = async (url) => {
 
         // Agregamos un objeto al array con el texto y el href
         dataArray.push({
-            date: new Date().toLocaleDateString(),
+            date: new Date().toLocaleDateString('es-AR'),
             name: titleText,
             value: amount,
             percentaje
