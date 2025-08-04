@@ -11,7 +11,7 @@ import specs from './swaggerOptions.js';
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 const mode = process.env.NODE_ENV || 'development';
 
 
