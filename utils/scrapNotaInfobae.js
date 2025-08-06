@@ -16,17 +16,12 @@ export const scrapeNotaInfobae = async (notaUrl) => {
 
     // Extraer subtítulo si existe
     const subheadline = $('.article-subheadline').text().trim();
-    
-
     // Extraer párrafos dentro del article
-    // const paragraphs = $('article.article .paragraph')
-    //   .map((i, el) => $(el).text().trim())
-    //   .get()
-    //   .filter(p => p.length > 0);
+    const paragraphs = $('article.article .paragraph')
 
-    const fullText = [
-      subheadline, // Primero el subtítulo
-     // ...paragraphs // Luego los párrafos del artículo
+    const fullText = [  
+    subheadline, // Primero el subtítulo
+    paragraphs.text() // Luego los párrafos del artículo
     ]
       .filter(Boolean) // Filtra null o strings vacíos
       .join('\n\n');
